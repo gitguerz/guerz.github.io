@@ -10,7 +10,17 @@
 
 [Live site](https://gitguerz.github.io/guerz.github.io/) · [The challenge](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H) · [guerz.lol](https://guerz.lol)
 
-<img src="./images/image-qr-code.png" alt="QR code that links to the Frontend Mentor website" width="320">
+ <figure class="qr-card"> <!-- the card is now a figure: a self-contained unit of image plus caption -->
+   
+   <img class="qr-image" src="./images/image-qr-code.png" alt="QR code that links to the Frontend Mentor website"> <!-- QR code; alt says where it leads -->
+   
+   <figcaption> <!-- the caption for the image; it can hold the heading and text -->
+     <h1 class="qr-title">Improve your front-end skills by building projects</h1> <!-- the only heading, so h1 --> 
+     
+  <p class="qr-text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p> <!-- supporting text -->
+      </figcaption> <!-- end caption -->
+
+    </figure> <!-- end card -->
 
 </div>
 
