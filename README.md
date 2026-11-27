@@ -65,4 +65,4 @@ I used Claude as a coach. It wrote the HTML scaffold and told me which CSS rules
 ## Author
 
 - Website: [guerz.lol](https://guerz.lol)
-- Frontend Mentor: add your profile link here
+- Frontend Mentor: https://www.frontendmentor.io/profile/gitguerz
