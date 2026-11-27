@@ -8,20 +8,22 @@
 
   <title>Frontend Mentor | QR code component</title> <!-- tab title -->
 
-  <link rel="stylesheet" href="styles.css"> <!-- loads YOUR css; replaces the starter's <style> block -->
+  <link rel="stylesheet" href="styles.css"> <!-- loads your css -->
 </head>
 <body> <!-- everything visible -->
 
   <main class="page"> <!-- the main-content landmark; .page is your hook for centering -->
-    <div class="qr-card"> <!-- the white card -->
+    <figure class="qr-card"> <!-- the card is now a figure: a self-contained unit of image plus caption -->
 
       <img class="qr-image" src="./images/image-qr-code.png" alt="QR code that links to the Frontend Mentor website"> <!-- QR code; alt says where it leads -->
 
-      <h1 class="qr-title">Improve your front-end skills by building projects</h1> <!-- the only heading, so h1 -->
+      <figcaption> <!-- the caption for the image; it can hold the heading and text -->
+        <h1 class="qr-title">Improve your front-end skills by building projects</h1> <!-- the only heading, so h1 -->
 
-      <p class="qr-text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p> <!-- supporting text -->
+        <p class="qr-text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p> <!-- supporting text -->
+      </figcaption> <!-- end caption -->
 
-    </div> <!-- end card -->
+    </figure> <!-- end card -->
   </main> <!-- end main -->
 
   <footer class="attribution"> <!-- credits; keeps the starter's class name -->

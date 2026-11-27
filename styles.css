@@ -23,6 +23,7 @@ body { /* the whole page */
   max-width: 320px; /* the card never gets wider than this */
   text-align: center; /* centers the heading and paragraph */
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* soft shadow: x, y, blur, color */
+  margin: 0; /* removes the default 40px side margin that figure comes with */
 }
 
 .qr-image { /* the QR code picture */
