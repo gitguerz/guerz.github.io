@@ -4,23 +4,33 @@
   font-weight: 100 900; /* this one file covers every weight */
 }
 
+*, *::before, *::after { /* makes width/max-width include padding and borders */
+  box-sizing: border-box;
+}
+
 body { /* the whole page */
+  margin: 0; /* removes the browser's default 8px body margin */
+  min-height: 100svh; /* fills the viewport height cleanly on mobile and desktop */
+  display: flex; /* stacks <main> and <footer> vertically */
+  flex-direction: column;
   background-color: hsl(212, 45%, 89%); /* Slate 300 from the style guide */
   font-family: Outfit, sans-serif; /* Outfit, with sans-serif as the backup */
 }
 
 .page { /* the <main> wrapper */
-  min-height: 100vh; /* at least as tall as the screen */
+  flex: 1; /* grows to fill remaining space above the footer without causing scroll */
   display: flex; /* makes .page a flex container */
   justify-content: center; /* centers the card left to right */
   align-items: center; /* centers the card top to bottom */
+  padding: 16px; /* keeps the card off screen edges on narrow phones */
 }
 
 .qr-card { /* the white card */
   background-color: white; /* white card color */
   padding: 16px; /* space between the card edge and its contents */
   border-radius: 20px; /* rounded corners */
-  max-width: 320px; /* the card never gets wider than this */
+  max-width: 320px; /* exact 320px total width thanks to border-box */
+  width: 100%; /* shrinks gracefully on screens narrower than 352px */
   text-align: center; /* centers the heading and paragraph */
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* soft shadow: x, y, blur, color */
   margin: 0; /* removes the default 40px side margin that figure comes with */
@@ -32,23 +42,29 @@ body { /* the whole page */
   border-radius: 10px; /* rounded corners like the design */
 }
 
+.qr-card figcaption { /* inner text block below the QR image */
+  padding: 0 12px; /* matches the design's narrower text column */
+}
+
 .qr-title { /* the heading */
   font-size: 22px; /* about the size in the design */
   color: hsl(218, 44%, 22%); /* Slate 900 */
   margin: 24px 0 16px; /* 24px above, 0 on the sides, 16px below */
   font-weight: 700; /* bold, as in the design */
+  line-height: 1.25; /* keeps the two-line heading tight and balanced */
 }
 
 .qr-text { /* the paragraph */
   font-size: 15px; /* from the style guide */
   color: hsl(216, 15%, 48%); /* Slate 500 */
-  margin: 0 0 8px; /* no space above, 8px below */
+  margin: 0 0 24px; /* balanced breathing room at the bottom of the card */
   line-height: 1.4; /* a little space between lines */
 }
 
 .attribution { /* the footer */
   font-size: 0.6875rem; /* tiny footer text */
   text-align: center; /* centered */
+  padding: 12px 16px; /* subtle breathing room at the bottom */
 }
 
 .attribution a { /* links in the footer */
