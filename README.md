@@ -10,7 +10,7 @@
 
 [Live site](https://gitguerz.github.io/guerz.github.io/) · [The challenge](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H) · [guerz.lol](https://guerz.lol)
 
-<img src="./screenshot.png" alt="The finished QR code card, centered on a pale blue background" width="320">
+<img src="./images/image-qr-code.png" alt="QR code that links to the Frontend Mentor website" width="320">
 
 </div>
 
