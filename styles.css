@@ -1,51 +1,55 @@
 @font-face { /* teaches the browser the Outfit font from a file */
-  font-family: "Outfit"; /* the name your font-family rule uses */
-  src: url("./fonts/Outfit-VariableFont_wght.ttf"); /* must match the real file name and folder exactly */
+  font-family: "Outfit"; /* the name the font-family rule uses */
+  src: url("./fonts/Outfit-VariableFont_wght.ttf"); /* must match the real file name and folder */
   font-weight: 100 900; /* this one file covers every weight */
 }
-.attribution { font-size: 0.6875rem; text-align: center; } /* tiny centered footer text */
-.attribution a { color: hsl(228, 45%, 44%); } /* footer link color */
+
 body { /* the whole page */
-  background-color: hsl(212, 45%, 89%); /* Slate 300 from the style guide */}
+  background-color: hsl(212, 45%, 89%); /* Slate 300 from the style guide */
+  font-family: Outfit, sans-serif; /* Outfit, with sans-serif as the backup */
+}
+
 .page { /* the <main> wrapper */
-  min-height: 100vh; /* at least as tall as the screen (100%) of the viewport height */
-  display: flex; /* makes .page a flex container, so its children can be arranged */
+  min-height: 100vh; /* at least as tall as the screen */
+  display: flex; /* makes .page a flex container */
   justify-content: center; /* centers the card left to right */
   align-items: center; /* centers the card top to bottom */
 }
+
 .qr-card { /* the white card */
   background-color: white; /* white card color */
-  padding: 16px; /* space between the card edge and what's inside */
+  padding: 16px; /* space between the card edge and its contents */
   border-radius: 20px; /* rounded corners */
   max-width: 320px; /* the card never gets wider than this */
   text-align: center; /* centers the heading and paragraph */
-}.qr-image { /* the QR code picture */
-  width: 100%; /* fills the card's inner width instead of its own full size */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* soft shadow: x, y, blur, color */
+}
+
+.qr-image { /* the QR code picture */
+  width: 100%; /* fills the card's inner width */
   display: block; /* removes the small gap browsers leave under inline images */
   border-radius: 10px; /* rounded corners like the design */
 }
+
 .qr-title { /* the heading */
   font-size: 22px; /* about the size in the design */
   color: hsl(218, 44%, 22%); /* Slate 900 */
+  margin: 24px 0 16px; /* 24px above, 0 on the sides, 16px below */
+  font-weight: 700; /* bold, as in the design */
 }
 
 .qr-text { /* the paragraph */
   font-size: 15px; /* from the style guide */
   color: hsl(216, 15%, 48%); /* Slate 500 */
-}
-.qr-title { /* add inside your existing rule */
-  margin: 24px 0 16px; /* 24px above the title, 0 on the sides, 16px below */
-  font-weight: 700; /* bold, as in the design */
+  margin: 0 0 8px; /* no space above, 8px below */
+  line-height: 1.4; /* a little space between lines */
 }
 
-.qr-text { /* add inside your existing rule */
-  margin: 0 0 8px; /* no space above, 8px below so the card has breathing room at the bottom */
-  line-height: 1.4; /* a little space between the paragraph's lines */
-}
-.qr-card { /* add inside your existing rule */
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1); /* soft shadow under the card: x, y, blur, color */
+.attribution { /* the footer */
+  font-size: 0.6875rem; /* tiny footer text */
+  text-align: center; /* centered */
 }
 
-body { /* add inside your existing rule */
-  font-family: Outfit, sans-serif; /* Outfit once you add the font file; sans-serif until then */
+.attribution a { /* links in the footer */
+  color: hsl(228, 45%, 44%); /* footer link color */
 }
