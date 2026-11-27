@@ -21,8 +21,7 @@ My solution to the QR code component challenge on Frontend Mentor. It's a single
 ### Links
 
 - Solution URL: [github.com/gitguerz/guerz.github.io](https://github.com/gitguerz/guerz.github.io)
-- Live Site URL: [gitguerz.github.io/guerz.github.io](https://gitguerz.github.io/guerz.github.io/)
-
+- Live Site URL: [frontend.guerz.lol](https://frontend.guerz.lol/)
 ## Spec sheet
 
 | | |
