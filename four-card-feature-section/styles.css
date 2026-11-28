@@ -1,0 +1,86 @@
+.attribution { font-size: 0.6875rem; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+/* replace your whole existing .card rule with this one */
+.card {
+    border-top: 4px solid;                  /* colored top edge; the color comes from the modifier class */
+    padding: 2rem;                          /* space inside the card on all sides */
+    display: flex;                          /* makes the card a flex container */
+    flex-direction: column;                 /* stacks h2, p and img vertically */
+    border-radius: 5px;                     /* rounds the card's corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* soft shadow under the card */
+    background-color: hsl(0, 0%, 100%);        /* white background for the card */
+    
+}
+
+/* add these between the .card rule and the .cyan rule */
+.card img {
+    align-self: flex-end;      /* pins the icon to the bottom right and stops it stretching full width */
+}
+
+body {
+    font-family: "Poppins", sans-serif;   /* Poppins everywhere, sans-serif as the fallback */
+}
+
+p {
+    font-size: 0.9375rem;      /* 15px at the default 16px root size */
+}
+
+/* add these two at the bottom of styles.css */
+h1 {
+    font-weight: 200;                       /* light weight for the whole heading (no unit) */
+}
+
+span {
+    font-weight: 600;                       /* bold weight for "Powered by Technology" only */
+    display: block;                        /* makes the span a block element so it sits on its own line */
+}
+
+.cyan {
+    border-top-color: hsl(180, 62%, 55%);
+}
+
+.red {
+    border-top-color: hsl(0, 78%, 62%);
+}
+
+.orange {
+    border-top-color: hsl(34, 97%, 64%);
+}
+
+.blue {
+    border-top-color: hsl(212, 86%, 64%);
+}
+
+.cards {
+    display: grid; /* makes the cards a grid container */
+    gap: 2.5rem; /* space between the cards */
+}
+
+@media (min-width: 48rem) { /* everything below only applies at 48rem and wider */
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr; /* three equal columns for the cards */
+    }
+
+    .red {
+        grid-column: 2; /* moves the red card to the second column */
+        grid-row: 1; /* moves the red card to the first row */
+    }
+
+    .orange {
+        grid-column: 2; /* moves the orange card to the second column */
+        grid-row: 2; /* moves the orange card to the second row */
+    }
+
+    .blue {
+        grid-column: 3; /* moves the blue card to the third column */
+        grid-row: 1 / 3; /* starts at the first line and ends at line 3, so it covers both rows */
+        align-self: center; /* vertically centers the blue card in its grid area */
+    }
+
+    .cyan {
+        grid-column: 1; /* moves the cyan card to the first column */
+        grid-row: 1 / 3; /* starts at the first line and ends at line 3, so it covers both rows */
+        align-self: center; /* vertically centers the cyan card in its grid area */
+    }
+}
