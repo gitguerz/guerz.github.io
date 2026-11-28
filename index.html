@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!-- tells the browser this is an HTML5 page -->
+<html lang="en"> <!-- root element; lang helps screen readers pick the right voice -->
+  <head> <!-- page info that does not show on screen -->
+    <meta charset="UTF-8"> <!-- lets the page show any character correctly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- makes the page fit phone screens -->
+    <title>Frontend Mentor challenges | Guerz</title> <!-- tab title and search result title -->
+    <meta name="description" content="Frontend Mentor challenge solutions by Guerz, built with HTML and CSS. Each card links to the live build and its code."> <!-- search result summary -->
+    <link rel="stylesheet" href="styles.css"> <!-- all styling lives in this one shared file -->
+  </head>
+  <body> <!-- everything visible on the page -->
+    <a class="skip-link" href="#challenges">Skip to challenges</a> <!-- lets keyboard users jump past the header -->
+
+    <header class="site-header"> <!-- intro area at the top -->
+      <p class="site-header__eyebrow">Frontend Mentor</p> <!-- small label above the title -->
+      <h1 class="site-header__title">Lessons and challenges</h1> <!-- the one h1 on the page -->
+      <p class="site-header__intro">Every challenge I finish gets a card here, with the live build and the code. HTML and CSS only for now.</p> <!-- one-line intro -->
+    </header>
+
+    <main> <!-- the main content of the page -->
+      <section id="challenges" aria-labelledby="challenges-title"> <!-- the gallery; id is the skip link target -->
+        <h2 id="challenges-title" class="section-title">Challenges</h2> <!-- names the section for screen readers -->
+        <ul class="gallery"> <!-- a list of cards, so a screen reader announces how many there are -->
+
+          <li class="gallery__item"> <!-- one list item per card -->
+            <article class="card card--qr"> <!-- card for the QR code component; modifier class for its own styling -->
+              <img class="card__image" src="QR%20Code%20Component/preview.jpg" alt="The QR code component: a white card with a QR code, a heading, and a short paragraph, centered on a pale blue background" width="1440" height="1056" loading="lazy"> <!-- preview image; width and height stop layout shift -->
+              <div class="card__body"> <!-- groups the text so it can be padded together -->
+                <h3 class="card__title">QR code component</h3> <!-- card heading, one level under the h2 -->
+                <p class="card__text">Flexbox centering and a variable font loaded with @font-face.</p> <!-- what I practiced -->
+                <ul class="card__tags"> <!-- skills used -->
+                  <li class="card__tag">HTML</li> <!-- tag -->
+                  <li class="card__tag">CSS</li> <!-- tag -->
+                  <li class="card__tag">Flexbox</li> <!-- tag -->
+                </ul>
+                <p class="card__links"> <!-- the two links -->
+                  <a class="card__link card__link--live" href="QR%20Code%20Component/">View the QR code component live</a> <!-- opens the live build -->
+                  <a class="card__link card__link--code" href="https://github.com/gitguerz/frontendmentor-lessons-and-challenges/tree/main/QR%20Code%20Component">See the QR code component code</a> <!-- opens the folder on GitHub -->
+                </p>
+              </div>
+            </article>
+          </li>
+
+          <li class="gallery__item"> <!-- second list item -->
+            <article class="card card--four-card"> <!-- card for the four card feature section -->
+              <img class="card__image" src="four-card-feature-section/screenshot-desktop.png" alt="Desktop view of the four card feature section: four colored cards in a three-column grid under a centered heading" width="1280" height="720" loading="lazy"> <!-- desktop screenshot -->
+              <div class="card__body"> <!-- text wrapper -->
+                <h3 class="card__title">Four card feature section</h3> <!-- card heading -->
+                <p class="card__text">CSS Grid placement with a mobile-first media query.</p> <!-- what I practiced -->
+                <ul class="card__tags"> <!-- skills used -->
+                  <li class="card__tag">HTML</li> <!-- tag -->
+                  <li class="card__tag">CSS</li> <!-- tag -->
+                  <li class="card__tag">CSS Grid</li> <!-- tag -->
+                  <li class="card__tag">Mobile-first</li> <!-- tag -->
+                </ul>
+                <p class="card__links"> <!-- the two links -->
+                  <a class="card__link card__link--live" href="four-card-feature-section/">View the four card feature section live</a> <!-- opens the live build -->
+                  <a class="card__link card__link--code" href="https://github.com/gitguerz/frontendmentor-lessons-and-challenges/tree/main/four-card-feature-section">See the four card feature section code</a> <!-- opens the folder on GitHub -->
+                </p>
+              </div>
+            </article>
+          </li>
+
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer"> <!-- bottom of the page -->
+      <p>Built by <a href="https://guerz.lol">Guerz</a>. Find me on <a href="https://www.frontendmentor.io/profile/gitguerz">Frontend Mentor</a>.</p> <!-- links out to my site and profile -->
+    </footer>
+  </body>
+</html>

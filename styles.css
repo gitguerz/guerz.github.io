@@ -1,1 +1,264 @@
+/* ---------- font: reuses the Outfit file already in the QR folder ---------- */
+@font-face { /* teaches the browser a font it can use */
+  font-family: "Outfit"; /* the name I use below */
+  src: url("./QR%20Code%20Component/fonts/Outfit-VariableFont_wght.ttf"); /* %20 is a space in the folder name */
+  font-weight: 100 900; /* one variable file covers every weight */
+  font-display: swap; /* show fallback text first, swap when loaded */
+}
 
+/* ---------- palette and shared values ---------- */
+:root { /* :root is the top of the page, so every rule below can use these */
+  --bg: #7185E1; /* first color: page background (blue) */
+  --surface: #E19471; /* second color: second background (orange) */
+  --accent: #BEE171; /* third color: accents (lime) */
+  --ink: #14172B; /* dark text color from the contrast check */
+  --border: 3px solid var(--ink); /* one border style reused on cards, tags, links */
+  --radius: 1rem; /* shared corner rounding */
+  --shadow: 8px 8px 0 var(--ink); /* hard offset shadow, no blur */
+}
+
+/* ---------- reset ---------- */
+*, /* every element */
+*::before, /* every before pseudo-element */
+*::after { /* every after pseudo-element */
+  box-sizing: border-box; /* padding and border count inside the width */
+}
+
+body { /* styles the whole page */
+  margin: 0; /* removes the browser default margin */
+  min-height: 100vh; /* page is at least one screen tall */
+  display: flex; /* lets the footer sit at the bottom */
+  flex-direction: column; /* stacks header, main, footer */
+  background: var(--bg); /* reads the blue from the list above */
+  color: var(--ink); /* dark text everywhere, passes contrast */
+  font-family: "Outfit", system-ui, sans-serif; /* Outfit first, system font as backup */
+  font-size: 1.125rem; /* a little larger than default for easy reading */
+  line-height: 1.5; /* space between lines of text */
+}
+
+img { /* every image */
+  display: block; /* removes the small gap under inline images */
+  max-width: 100%; /* never wider than its box */
+  height: auto; /* keeps the right proportions */
+}
+
+/* ---------- accessibility ---------- */
+:focus-visible { /* shows only for keyboard focus */
+  outline: 4px solid var(--ink); /* thick outline, 5:1 or better on blue and orange */
+  outline-offset: 4px; /* gap between the element and its outline */
+}
+
+.skip-link { /* the "skip to challenges" link */
+  position: absolute; /* takes it out of the page flow */
+  top: 0; /* pinned to the top edge */
+  left: 1rem; /* a little in from the left */
+  padding: 0.75rem 1rem; /* breathing room inside the button */
+  background: var(--accent); /* lime fill */
+  color: var(--ink); /* dark text on lime */
+  font-weight: 700; /* bold so it is easy to spot */
+  border: var(--border); /* matches the other buttons */
+  border-radius: 0 0 var(--radius) var(--radius); /* rounded bottom corners only */
+  transform: translateY(-120%); /* hides it above the screen */
+}
+
+.skip-link:focus { /* when a keyboard user tabs to it */
+  transform: translateY(0); /* slides it into view */
+}
+
+/* ---------- header ---------- */
+.site-header { /* the intro area */
+  padding: 4rem 1.5rem 2rem; /* top, sides, bottom */
+  max-width: 72rem; /* keeps lines from getting too long */
+  width: 100%; /* fills the width up to the max */
+  margin: 0 auto; /* centers the block */
+}
+
+.site-header__eyebrow { /* small label above the title */
+  display: inline-block; /* lets padding and background wrap the text */
+  margin: 0 0 1rem; /* space below the label */
+  padding: 0.25rem 0.9rem; /* room inside the pill */
+  background: var(--accent); /* lime fill */
+  border: var(--border); /* ink outline */
+  border-radius: 999px; /* fully rounded pill */
+  font-size: 0.9rem; /* smaller than body text */
+  font-weight: 700; /* bold */
+  letter-spacing: 0.08em; /* spaced out capitals */
+  text-transform: uppercase; /* ALL CAPS */
+}
+
+.site-header__title { /* the h1 */
+  margin: 0 0 1rem; /* space below the title */
+  font-size: clamp(2.5rem, 8vw, 5.5rem); /* grows with the screen, with a min and max */
+  font-weight: 800; /* extra bold */
+  line-height: 1; /* tight lines for big type */
+  letter-spacing: -0.03em; /* pulls big letters closer */
+}
+
+.site-header__intro { /* one-line intro */
+  max-width: 36rem; /* keeps the line length readable */
+  margin: 0; /* removes default paragraph margins */
+  font-size: 1.25rem; /* a bit bigger than body text */
+}
+
+/* ---------- gallery ---------- */
+main { /* the main content area */
+  flex: 1; /* takes the leftover height so the footer stays low */
+  width: 100%; /* fills the width up to the max */
+  max-width: 72rem; /* matches the header width */
+  margin: 0 auto; /* centers the block */
+  padding: 1rem 1.5rem 4rem; /* top, sides, bottom */
+}
+
+.section-title { /* the "Challenges" h2 */
+  margin: 0 0 1.5rem; /* space below the heading */
+  font-size: 1.75rem; /* section heading size */
+  font-weight: 800; /* extra bold */
+}
+
+.gallery { /* the list of cards */
+  display: grid; /* makes the cards a grid */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); /* as many columns as fit, one on phones */
+  gap: 2.5rem; /* space between cards, leaves room for the shadow */
+  margin: 0; /* removes default list margin */
+  padding: 0; /* removes default list padding */
+  list-style: none; /* removes the bullets */
+}
+
+/* ---------- card ---------- */
+.card { /* one challenge */
+  display: flex; /* lets the body fill the card */
+  flex-direction: column; /* image on top, text below */
+  height: 100%; /* cards in a row match height */
+  overflow: hidden; /* clips the image to the rounded corners */
+  background: var(--surface); /* second background color (orange) */
+  border: var(--border); /* ink outline */
+  border-radius: var(--radius); /* rounded corners */
+  box-shadow: var(--shadow); /* hard offset shadow */
+  transition: transform 0.15s ease, box-shadow 0.15s ease; /* smooth hover */
+}
+
+.card:hover { /* when the mouse is over the card */
+  transform: translate(-4px, -4px); /* lifts the card up and left */
+  box-shadow: 12px 12px 0 var(--ink); /* longer shadow to match the lift */
+}
+
+.card__image { /* the screenshot */
+  width: 100%; /* fills the card width */
+  aspect-ratio: 4 / 3; /* same shape for every card */
+  object-fit: cover; /* crops instead of squishing */
+  object-position: top; /* keeps the top of the screenshot */
+  border-bottom: var(--border); /* line between image and text */
+}
+
+.card__body { /* the text area */
+  display: flex; /* lets me push the links to the bottom */
+  flex: 1; /* fills the space under the image */
+  flex-direction: column; /* stacks title, text, tags, links */
+  gap: 1rem; /* space between each piece */
+  padding: 1.5rem; /* room inside the card */
+}
+
+.card__title { /* the h3 */
+  margin: 0; /* spacing comes from the gap above */
+  font-size: 1.75rem; /* card heading size */
+  font-weight: 800; /* extra bold */
+  line-height: 1.1; /* tight lines */
+}
+
+.card__text { /* short description */
+  margin: 0; /* spacing comes from the gap above */
+}
+
+.card__tags { /* the list of skills */
+  display: flex; /* puts tags in a row */
+  flex-wrap: wrap; /* wraps to the next line if needed */
+  gap: 0.5rem; /* space between tags */
+  margin: 0; /* removes default list margin */
+  padding: 0; /* removes default list padding */
+  list-style: none; /* removes the bullets */
+}
+
+.card__tag { /* one skill tag */
+  padding: 0.15rem 0.75rem; /* room inside the pill */
+  background: var(--accent); /* lime fill */
+  border: 2px solid var(--ink); /* thinner ink outline */
+  border-radius: 999px; /* fully rounded pill */
+  font-size: 0.9rem; /* small text */
+  font-weight: 600; /* semi bold */
+}
+
+.card__links { /* holds the two buttons */
+  display: flex; /* puts buttons in a row */
+  flex-wrap: wrap; /* wraps on narrow cards */
+  gap: 0.75rem; /* space between buttons */
+  margin: auto 0 0; /* auto top margin pushes the links to the card bottom */
+}
+
+.card__link { /* both link buttons */
+  padding: 0.6rem 1rem; /* room inside the button */
+  border: var(--border); /* ink outline */
+  border-radius: var(--radius); /* rounded corners */
+  color: var(--ink); /* dark text */
+  font-size: 1rem; /* normal size */
+  font-weight: 700; /* bold */
+  text-decoration: none; /* removes the underline */
+  transition: background-color 0.15s ease, color 0.15s ease; /* smooth hover */
+}
+
+.card__link--live { /* the main button */
+  background: var(--accent); /* lime fill */
+}
+
+.card__link--code { /* the secondary button */
+  background: transparent; /* shows the orange behind it */
+}
+
+.card__link:hover { /* mouse over either button */
+  background: var(--ink); /* flips to dark fill */
+  color: var(--accent); /* lime text on ink, 11:1 contrast */
+}
+
+/* ---------- footer ---------- */
+.site-footer { /* the bottom band */
+  padding: 1.5rem; /* room inside the band */
+  background: var(--surface); /* second background color (orange) */
+  border-top: var(--border); /* line above the band */
+  text-align: center; /* centers the text */
+}
+
+.site-footer p { /* the footer sentence */
+  margin: 0; /* removes default paragraph margin */
+}
+
+.site-footer a { /* links in the footer */
+  color: var(--ink); /* dark text */
+  font-weight: 700; /* bold */
+  text-underline-offset: 0.2em; /* moves the underline down a bit */
+}
+
+.site-footer a:hover { /* mouse over a footer link */
+  background: var(--accent); /* lime highlight */
+}
+
+/* ---------- bigger screens ---------- */
+@media (min-width: 48rem) { /* everything below only applies at 48rem and wider */
+  .site-header { /* the intro area */
+    padding: 6rem 2rem 3rem; /* more room on desktop */
+  }
+
+  main { /* the main content area */
+    padding: 1rem 2rem 6rem; /* wider sides and more space below */
+  }
+}
+
+/* ---------- motion settings ---------- */
+@media (prefers-reduced-motion: reduce) { /* for people who turn animations off */
+  .card, /* cards */
+  .card__link { /* and buttons */
+    transition: none; /* no animation */
+  }
+
+  .card:hover { /* hovered card */
+    transform: none; /* stays put */
+  }
+}
